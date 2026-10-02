@@ -11,31 +11,24 @@ Run it: python template.py
 
 
 
-while True:
-
-    label = input("Enter dataset name (or quit to finish): ")
-
-    if label == "quit":
-        break
-
-    value = float(input("Enter rows loaded: "))
-    limit = float(input("Enter rows expected: "))
+dataset_name = input("Dataset_name: ")     
+value = float(input("Enter rows loaded: "))
+limit = float(input("Enter rows expected: "))
 
 
-    difference = limit - value
+difference = limit - value
+percent = (value / limit) * 100
 
-    percent = (value / limit) * 100
 
+if percent >= 100:
+    status = "OVER LIMIT"
+    over_limit_count += 1
 
-    if percent >= 100:
-        status = "OVER LIMIT"
-        over_limit_count += 1
+elif percent >= 90:
+    status = "WARNING"
 
-    elif percent >= 90:
-        status = "WARNING"
-
-    else:
-        status = "OK"
+else:
+    status = "OK"
 
 
     print()
