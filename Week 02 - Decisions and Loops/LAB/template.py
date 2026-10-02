@@ -9,7 +9,10 @@ Date  : 02 October 2026
 Run it: python template.py
 """
 
-
+while True:
+    label = input("Enter dataset name (or quit to finish): ")
+    if label == "quit":
+        break
 
 dataset_name = input("Dataset_name: ")     
 value = float(input("Enter rows loaded: "))
