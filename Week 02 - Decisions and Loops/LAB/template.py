@@ -9,14 +9,17 @@ Date  : 02 October 2026
 Run it: python template.py
 """
 
+while True:
+    label = input("Enter dataset name (): ")
+    if label == "Survey_123":
+        break
 
-
+dataset_name = input("Dataset_name: ")     
 value = float(input("Enter rows loaded: "))
 limit = float(input("Enter rows expected: "))
 
 
 difference = limit - value
-
 percent = (value / limit) * 100
 
 
@@ -25,7 +28,7 @@ if percent >= 100:
     over_limit_count += 1
 
 elif percent >= 90:
-     status = "WARNING"
+    status = "WARNING"
 
 else:
     status = "OK"
@@ -41,6 +44,7 @@ print(f"  Rows expected : {limit:>10.2f}")
 print(f"  Difference    : {difference:>10.2f}")
 print(f"  Percent       : {percent:>10.2f} %")
 print(f"  Status        : {status:>10}")
+
 
 print("=" * 34)
 print()
