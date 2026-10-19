@@ -1,12 +1,12 @@
-'''''
-Password Generator
+"""Generate passwords from a requested number of characters.
+## Password Generator
 
 **Uses:** lists, `random.choice()`, `random.shuffle()`, `for` loops,
 string building
 
 1. At the top of your file, write `import random`.
-2. Create a list called `letters` containing every letter `a`–`z` and
-   `A`–`Z` as separate strings, for example `["a", "b", "c", ...]`.
+2. Create a list called `letters` containing every letter `a`â€“`z` and
+   `A`â€“`Z` as separate strings, for example `["a", "b", "c", ...]`.
 3. Create a list called `numbers` containing the strings `"0"` to `"9"`.
 4. Create a list called `symbols` containing some symbols, for example
    `["!", "#", "$", "%", "&", "(", ")", "*", "+"]`.
@@ -15,7 +15,7 @@ string building
 6. Do the same for symbols, storing the answer in `nr_symbols`.
 7. Do the same for numbers, storing the answer in `nr_numbers`.
 
-**Easy version — letters, then symbols, then numbers**
+**Easy version â€” letters, then symbols, then numbers**
 
 8. Create a variable `password` and set it to an empty string `""`.
 9. Write a `for` loop using `range(nr_letters)`. Inside it, add
@@ -26,10 +26,10 @@ string building
     same with `numbers`.
 12. Print `password`.
 
-**Hard version — shuffled order**
+**Hard version â€” shuffled order**
 
 13. Create a variable `password_list` and set it to an empty list `[]`.
-14. Repeat steps 9–11, but this time use `.append()` to add each random
+14. Repeat steps 9â€“11, but this time use `.append()` to add each random
     character to `password_list` instead of adding it to a string.
 15. Call `random.shuffle(password_list)` to mix up the order.
     (Note: `shuffle()` changes the list in place and returns `None`, so
@@ -40,42 +40,50 @@ string building
 18. Print `password`. Run it a few times with the same inputs and check
     the order changes each time.
 
-**Extension:** replace steps 16–17 with one line:
+**Extension:** replace steps 16â€“17 with one line:
 `password = "".join(password_list)`.
-'''
 
-
-
+*Adapted from: 100 Days of Code, Day 5.*
+"""
 
 import random
 
 
+letters = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+numbers = list("0123456789")
+symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 
+print("Welcome to the Password Generator!")
+nr_letters = int(input("How many letters would you like? "))
+nr_symbols = int(input("How many symbols would you like? "))
+nr_numbers = int(input("How many numbers would you like? "))
 
-letters = [
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-    "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-]
-numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+# Easy version: add the requested characters in groups.
+easy_password = ""
+for _ in range(nr_letters):
+    easy_password += random.choice(letters)
+for _ in range(nr_symbols):
+    easy_password += random.choice(symbols)
+for _ in range(nr_numbers):
+    easy_password += random.choice(numbers)
 
-symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ":", "?", "|", "^"]
+print("Easy password:", easy_password)
 
-nr_letters = int(input("Numbers of letters "))
-nr_symbols = int(input("Numbers of symbols "))
-nr_numbers = int(input("Numbers of numbers "))
+# Hard version: collect the characters, then shuffle them into a random order.
+password_list = []
+for _ in range(nr_letters):
+    password_list.append(random.choice(letters))
+for _ in range(nr_symbols):
+    password_list.append(random.choice(symbols))
+for _ in range(nr_numbers):
+    password_list.append(random.choice(numbers))
 
+random.shuffle(password_list)
+hard_password = ""
+for char in password_list:
+    hard_password += char
 
+print("Hard password:", hard_password)
 
-password = ""
+# For real account passwords, use a cryptographically secure generator.
 
-for i in range(nr_letters):
-    password += random.choice(letters)
-
-for i in range(nr_symbols):
-    password += random.choice(symbols)
-for i in range(nr_numbers):
-    password += random.choice(numbers)
-
-print(" The password is:", password)
