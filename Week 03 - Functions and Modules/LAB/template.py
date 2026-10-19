@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  : Mathieu Foissang
-Lane  :  AI 
+Lane  :  AI / data science
 Date  : 09/10/2026
 
 Run it:   python template.py
