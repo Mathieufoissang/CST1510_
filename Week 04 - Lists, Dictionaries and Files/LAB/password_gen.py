@@ -12,7 +12,6 @@ nr_letters = int(input("How many letters would you like? "))
 nr_symbols = int(input("How many symbols would you like? "))
 nr_numbers = int(input("How many numbers would you like? "))
 
-# Easy version: add the requested characters in groups.
 easy_password = ""
 for _ in range(nr_letters):
     easy_password += random.choice(letters)
@@ -23,7 +22,7 @@ for _ in range(nr_numbers):
 
 print("Easy password:", easy_password)
 
-# Hard version: collect the characters, then shuffle them into a random order.
+
 password_list = []
 for _ in range(nr_letters):
     password_list.append(random.choice(letters))
@@ -39,4 +38,4 @@ for char in password_list:
 
 print("Hard password:", hard_password)
 
-# For real account passwords, use a cryptographically secure generator.
+
