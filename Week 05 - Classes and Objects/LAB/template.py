@@ -2,15 +2,18 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  : Mathieu Foissang
+Lane  :  AI Data Science
+Date  : 23/10/2026
 
 Run it:   python template.py
 
 Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
+
+from pathlib import Path
+
 
 class Record:
 
@@ -37,7 +40,7 @@ class Record:
 
 def load_records(path):
     records = []
-    with open(path, "r", encoding="utf-8") as file:
+    with open(path, "r") as file:
         for line_number, line in enumerate(file, start=1):
             line = line.strip()
             if not line:
@@ -69,7 +72,11 @@ def print_reports(records):
 
 
 def main():
-    path = Path(__file__).with_name("my_records.csv")
+    path = Path(__file__).with_name("records_sample.txt")
     records = load_records(path)
     print_reports(records)
+
+
+if __name__ == "__main__":
+    main()
 
