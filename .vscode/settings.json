@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 {
     "python-envs.defaultEnvManager": "ms-python.python:venv",
     "python.terminal.executeInFileDir": true
 }
+=======
+{
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python.terminal.executeInFileDir": true
+}
+>>>>>>> b9eb3e7089ca7e0fc0a83d81ec0918bb6a8556bf

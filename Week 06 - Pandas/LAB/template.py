@@ -1,4 +1,5 @@
-﻿"""
+
+"""
 RECORD CHECK  -  completed pandas version
 ===========================
 
